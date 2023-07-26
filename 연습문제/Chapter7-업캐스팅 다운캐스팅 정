@@ -1,0 +1,46 @@
+package Chapter6to7;
+
+import java.util.*;
+
+public class SevenStudy {
+	public static void main(String[] args) {
+		Car car = new FireEngine();
+		Car car2 = null;
+		FireEngine fe = null;
+		
+		car.drive(); // 업
+		// car.water(); -> 오류발생
+		
+		fe = (FireEngine)car; // 다운
+		fe.drive();
+		fe.water();
+		
+		car2 = fe; // 업
+		car2.drive();
+		// car2.water(); -> 오류발생
+	}
+}
+
+class Car{
+	String color;
+	int door;
+	
+	void drive() {
+		System.out.println("drive");
+	}
+	
+	void stop() {
+		System.out.println("stop");
+	}
+}
+
+class FireEngine extends Car{
+	
+	void drive() {
+		System.out.println("fire drive");
+	}
+	
+	void water() {
+		System.out.println("water");
+	}
+}
